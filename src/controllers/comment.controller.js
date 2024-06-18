@@ -29,3 +29,12 @@ export {
     updateComment,
     deleteComment
     }
+
+// Tags: 
+        // FIXME
+        // TODO
+        // HACK
+        // BUG
+        // XXX
+        // [ ]
+        // [x]

@@ -9,6 +9,31 @@ const createPlaylist = asyncHandler(async (req, res) => {
     const {name, description} = req.body
 
     //TODO: create playlist
+
+    const userId = req.user._id
+
+    if (!name || !description) {
+        throw new ApiError(400, "All Field are required!")
+    }
+
+    const playlist = await Playlist.create({
+        name,
+        description,
+        owner: userId
+    })
+
+    if (!playlist) {
+        throw new ApiError(400, "Something went wrong Please try again later")
+    }
+
+    return res
+    .status(200)
+    .json(new ApiResponse(
+        200,
+        {},
+        "Playlist created successfully"
+    ))
+
 })
 
 const getUserPlaylists = asyncHandler(async (req, res) => {

@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import { Types } from "mongoose"
 import { Video } from "../models/video.model.js"
 import { Subscription } from "../models/subscription.model.js"
 import { Like } from "../models/like.model.js"
@@ -43,7 +43,7 @@ const getChannelStats = asyncHandler(async (req, res) => {
     const totalVideos = await Video.aggregate([
         {
             $match: {
-                owner: newTypes.ObjectId(userId)
+                owner: new Types.ObjectId(userId)
             }
         },
         {
@@ -111,7 +111,7 @@ const getChannelVideos = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(
         200,
-        { videos },,
+        { videos },
         "Channel videos fetched successfully"
     ))
 

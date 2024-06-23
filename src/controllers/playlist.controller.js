@@ -73,11 +73,55 @@ const getPlaylistById = asyncHandler(async (req, res) => {
 
 const addVideoToPlaylist = asyncHandler(async (req, res) => {
     const {playlistId, videoId} = req.params
+
+    if (!isValidObjectId(playlistId) || !isValidObjectId(videoId)) {
+        throw new ApiError(400, "Invalid playlist ID or video ID")
+    }
+
+    const playlist = await Playlist.findById(playlistId)
+
+    if (!playlist) {
+        throw new ApiError(400, "Playlist not found")
+    }
+
+    playlist.videos.push(videoId)
+
+    await playlist.save()
+
+    return res
+    .status(200)
+    .json(new ApiResponse(
+        200,
+        playlist,
+        "Video added to playlist successfully"
+    ))
 })
 
 const removeVideoFromPlaylist = asyncHandler(async (req, res) => {
     const {playlistId, videoId} = req.params
     // TODO: remove video from playlist
+
+    if (!isValidObjectId(playlistId) || !isValidObjectId(videoId)) {
+        throw new ApiError(400, "Invalid playlist ID or video ID")
+    }
+
+    const playlist = await Playlist.findById(playlistId)
+
+    if (!playlist) {
+        throw new ApiError(400, "Playlist not found")
+    }
+
+    playlist.videos = playlist.videos.filter((v) => v.toString() !== videoId)
+
+    playlist.save()
+
+    return res
+    .status(200)
+    .json(new ApiResponse(
+        200,
+        playlist,
+        "Video removed from playlist successfully"
+    ))
 
 })
 

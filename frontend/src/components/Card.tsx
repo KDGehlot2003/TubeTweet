@@ -4,7 +4,7 @@ import React from 'react'
 
 const Card = () => {
   return (
-<div className=' grid grid-cols- gap-4'>
+<div className=' grid grid-cols-4 gap-4 z-1'>
 <div className="card bg-base-100 w-72 h-60 shadow-xl">
     <figure>
         <img

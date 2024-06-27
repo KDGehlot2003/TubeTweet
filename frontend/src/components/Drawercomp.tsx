@@ -3,7 +3,7 @@ import React from 'react'
 
 const Drawercomp = () => {
   return (
-    <div className="drawer dark:">
+    <div className="drawer z-50 dark:">
   <input id="my-drawer" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
     {/* Page content here */}

@@ -8,7 +8,7 @@ const Category = () => {
   <div className="carousel-item m-3 p-2 rounded-lg ">
     {ytCategories.map((item, index) => (
         <div key={index} className="flex items-center justify-center ml-3 rounded-lg ">
-            <Button className='bg-slate-800 text-white'>{item}</Button>
+            <Button className='bg-slate-800 text-white hover:text-black'>{item}</Button>
         </div>
         ))}
   </div>

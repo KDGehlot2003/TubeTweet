@@ -1,12 +1,13 @@
-import './App.css'
-import { Button } from './components/ui/button'
+import React from 'react'
+import Header from './components/Header'
+// import Drawer from './components/Drawercomp'
 
-function App() {
-
+const App = () => {
   return (
-    <>
-    <Button>Click me</Button>
-    </>
+    <div>
+      <Header />
+      {/* <Drawer /> */}
+    </div>
   )
 }
 

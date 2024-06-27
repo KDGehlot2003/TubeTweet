@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from './components/Header'
-// import Drawer from './components/Drawercomp'
+import Category from './components/Category'
 
 const App = () => {
   return (
     <div>
       <Header />
-      {/* <Drawer /> */}
+      <Category />
     </div>
   )
 }

@@ -5,10 +5,12 @@ import Card from './components/Card'
 
 const App = () => {
   return (
-    <div>
+    <div className=' z-50'>
       <Header />
-      <Category />
-      <Card />
+      <div className=' z-10'>
+        <Category />
+        <Card />
+      </div>
     </div>
   )
 }
